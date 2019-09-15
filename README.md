@@ -1,3 +1,40 @@
+# Use anychart in a angular project
+## add  reference path to app.module.ts
+
+    /// <reference path="../../node_modules/anychart/dist/index.d.ts"/>
+## load css file in angular.json
+
+ "styles": [
+              "src/styles.scss",
+              "./node_modules/anychart/dist/css/anychart-ui.min.css",
+              "./node_modules/anychart/dist/fonts/css/anychart-font.min.css"
+            ]
+
+## import anychart js script in main.ts
+    import 'anychart/dist/js/anychart-base.min.js';
+    import 'anychart/dist/js/anychart-ui.min.js';
+
+## Use it in a component
+    in html : <div class="" #container></div>
+    in ts   :  chart: anychart.charts.Pie = null;
+                ngOnInit() {
+                    this.chart = anychart.pie();
+                    // set the data
+                     this.chart.data([
+                        ["Chocolate", 5],
+                        ["Rhubarb compote", 2],
+                        ["Crêpe Suzette", 2],
+                        ["American blueberry", 2],
+                        ["Buttermilk", 1]
+                    ]);
+                }
+                ngAfterViewInit() {
+                    this.chart.container(this.container.nativeElement);
+                    this.chart.draw();
+                }
+    
+  }
+
 # NgDashboardBuilder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.

@@ -1,0 +1,31 @@
+
+  
+  <gridster [options]="options">
+    <gridster-item [item]="item" *ngFor="let item of dashboard">
+        <div class="title">
+            {{item.title}}
+        </div>
+     
+        <svg height="100%" width="100%" viewBox="0 0 100 100">
+                <defs>
+                        <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                          <stop offset="0%" style="stop-color:rgb(173, 40, 40);
+                          stop-opacity:0.5" />
+                          <stop offset="100%" style="stop-color:rgb(255,27,27);stop-opacity:1" />
+                        </radialGradient>
+                      </defs>
+                <circle cx="50" cy="40" r="25" stroke="black" stroke-width="1" fill="rgb(255, 40, 40)" />
+                <text x="43" y="40"   font-size="12" fill="black">100</text>
+            </svg>
+    </gridster-item>
+    <gridster-item [item]="specific">
+         <div class="title">
+            {{specific.title}}
+        </div>
+        <div class="chart-container" #chartContainer></div>
+    </gridster-item>
+    <gridster-item [item]="specificLine">
+            <div class="chart-container" #chartContainer2></div>
+        </gridster-item>
+  </gridster>
+  
